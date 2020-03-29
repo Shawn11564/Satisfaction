@@ -1,0 +1,9 @@
+name: Satisfaction
+version: ${project.version}
+main: dev.mrshawn.satisfaction.Satisfaction
+api-version: 1.13
+prefix: Satisfaction
+softdepend: [Vault, PlaceholderAPI, MVdWPlaceholderAPI]
+authors: [MrShawn]
+description: Add block-based claims and pvp to your server
+website: https://mrshawn.dev/
