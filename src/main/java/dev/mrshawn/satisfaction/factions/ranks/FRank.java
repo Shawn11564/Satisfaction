@@ -6,10 +6,10 @@ import lombok.Getter;
 public enum FRank {
 
 	OWNER("ranks.owner"),
-	COOWNER,
-	OFFICER,
-	MEMBER,
-	GUEST;
+	COOWNER("ranks.co-owner"),
+	OFFICER("ranks.officer"),
+	MEMBER("ranks.member"),
+	GUEST("ranks.guest");
 
 	private String path;
 

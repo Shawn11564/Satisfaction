@@ -1,0 +1,24 @@
+chat:
+  format: "%prefix%%player%%suffix%: %message%"
+
+ranks:
+  owner:
+    name: "Owner"
+    prefix: "***"
+    suffix: ""
+  co-owner:
+    name: "Co-Owner"
+    prefix: "**"
+    suffix: ""
+  officer:
+    name: "Officer"
+    prefix: "*"
+    suffix: ""
+  member:
+    name: "Member"
+    prefix: "-"
+    suffix: ""
+  guest:
+    name: ""
+    prefix: ""
+    suffix: ""
