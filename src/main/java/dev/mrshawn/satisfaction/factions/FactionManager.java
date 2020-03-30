@@ -1,9 +1,8 @@
 package dev.mrshawn.satisfaction.factions;
 
-import dev.mrshawn.cronus.api.utils.Chat;
 import dev.mrshawn.satisfaction.Satisfaction;
 import dev.mrshawn.satisfaction.factions.servfacs.Wilderness;
-import org.bukkit.Bukkit;
+import dev.mrshawn.satisfaction.factions.timers.RegenTimer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -18,11 +17,12 @@ public class FactionManager {
 		this.main = main;
 		factions = new ArrayList<>();
 		factions.add(new Wilderness());
+
+		new RegenTimer().runTaskTimerAsynchronously(main, 0, main.getConfig().getInt("factions.power.cycle-time") * 20L);
 	}
 
 	public void addFaction(Faction faction) {
 		factions.add(faction);
-		Chat.tell(Bukkit.getPlayer("DonCheadle"), String.valueOf(factions));
 	}
 
 	public Faction getFaction(Player player) {
@@ -41,6 +41,19 @@ public class FactionManager {
 			}
 		}
 		return null;
+	}
+
+	public void regenPower() {
+		for (Faction faction : factions) {
+			if (!faction.atMaxPower()) {
+				if (main.getConfig().getBoolean("factions.power.require-online")) {
+					if (!faction.oneOn()) {
+						continue;
+					}
+				}
+				faction.addPower(main.getConfig().getDouble("factions.power.cycle-regen-amount"));
+			}
+		}
 	}
 
 }

@@ -13,6 +13,7 @@ import java.util.UUID;
 public class FPlayer {
 
 	private UUID uuid;
+	private boolean online;
 	private Faction faction;
 	private FRank rank;
 	private int blocks;
@@ -45,6 +46,10 @@ public class FPlayer {
 
 	public void addMaxPower(double power) {
 		this.maxPower += power;
+	}
+
+	public void removePower(double amount) {
+		power -= amount;
 	}
 
 	public void addBlocks(int blocks) {

@@ -18,7 +18,7 @@ public class JoinEvent implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
-		playerManager.addFPlayer(e.getPlayer());
+		playerManager.addFPlayer(e.getPlayer()).setOnline(true);
 	}
 
 }

@@ -4,6 +4,7 @@ import co.aikar.commands.PaperCommandManager;
 import dev.mrshawn.satisfaction.commands.FactionCMD;
 import dev.mrshawn.satisfaction.factions.FactionManager;
 import dev.mrshawn.satisfaction.factions.players.FPlayerManager;
+import dev.mrshawn.satisfaction.listeners.DeathEvent;
 import dev.mrshawn.satisfaction.listeners.JoinEvent;
 import lombok.Getter;
 import org.bukkit.plugin.PluginManager;
@@ -21,6 +22,8 @@ public final class Satisfaction extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
+		getConfig().options().copyDefaults();
+		saveDefaultConfig();
 		factionManager = new FactionManager(this);
 		fPlayerManager = new FPlayerManager(this);
 		registerCommands();
@@ -35,6 +38,7 @@ public final class Satisfaction extends JavaPlugin {
 	private void registerEvents() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new JoinEvent(this), this);
+		pm.registerEvents(new DeathEvent(this), this);
 	}
 
 	private void registerCommands() {

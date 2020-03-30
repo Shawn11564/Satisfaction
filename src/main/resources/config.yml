@@ -1,3 +1,18 @@
+factions:
+  power:
+    # How much power should a person get when they join the server for the first time
+    default-power: 10.0
+    # What should the max power be for a person when they join the server for the first time
+    default-max-power: 10.0
+    # How often should faction power increase in seconds
+    cycle-time: 600
+    # How much power should regen each cycle
+    cycle-regen-amount: 1.0
+    # Should the server require at least 1 member online to regen power
+    require-online: true
+    # How much power should the player lose on death
+    death-loss: 1.0
+
 chat:
   format: "%prefix%%player%%suffix%: %message%"
 

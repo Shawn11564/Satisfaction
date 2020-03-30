@@ -20,9 +20,10 @@ public class FPlayerManager {
 		players = new ArrayList<>();
 	}
 
-	public void addFPlayer(Player player) {
-		FPlayer fp = new FPlayer(player.getUniqueId(), 0, 0, 0, 0);
+	public FPlayer addFPlayer(Player player) {
+		FPlayer fp = new FPlayer(player.getUniqueId(), 0, 0, 10, 10);
 		players.add(fp);
+		return fp;
 	}
 
 	public void setFaction(Player player, Faction faction) {
