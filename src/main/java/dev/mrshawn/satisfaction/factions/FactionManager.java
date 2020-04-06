@@ -56,4 +56,8 @@ public class FactionManager {
 		}
 	}
 
+	public Faction getWilderness() {
+		return getFaction("wilderness");
+	}
+
 }

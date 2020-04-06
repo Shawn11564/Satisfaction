@@ -3,6 +3,7 @@ package dev.mrshawn.satisfaction.factions.players;
 import dev.mrshawn.satisfaction.Satisfaction;
 import dev.mrshawn.satisfaction.factions.Faction;
 import dev.mrshawn.satisfaction.factions.ranks.FRank;
+import dev.mrshawn.satisfaction.factions.servfacs.Wilderness;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,5 +59,9 @@ public class FPlayer {
 
 	public void addBPM(int bpm) {
 		this.bpm += bpm;
+	}
+
+	public boolean hasFaction() {
+		return this.faction != null && this.faction != Satisfaction.getInstance().getFactionManager().getWilderness();
 	}
 }
